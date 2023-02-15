@@ -86,7 +86,7 @@ BEST="School"
 ==========
 7-create_global_variable
 #!/bin/bash
-echo $(($BEST School))
+export BEST=School
 ==========
 8-true_knowledge
 #!/bin/bash
@@ -110,7 +110,7 @@ echo {a..z}{a..z} | tr " " "\n" | grep -v "oo"
 ==========
 13-print_float
 #!/bin/bash
-printf "%.2f" $NUM | sort
+printf "%.2f\n" $NUM
 ==========
 100-decimal_to_hexadecimal
 #!/bin/bash
@@ -118,11 +118,12 @@ printf '%x\n' $DECIMAL
 ==========
 101-rot13
 #!/bin/bash
-tr `echo {a..z} | tr -d ' '` `echo {n..z} $(echo {a..m} | tr -d ' '` | tr `echo {A..Z} | tr -d ' '` `echo {N..Z} $(echo {A..M}) | tr -d ' '`
+tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ==========
 102-odd
 #!/bin/bash
-perl -lne 'print if $. % 2 ==1'
+paste - - | cut -f1
+
 ==========
 103-water_and_stir
 #!/bin/bash
